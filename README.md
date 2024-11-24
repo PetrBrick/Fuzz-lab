@@ -146,6 +146,12 @@
 ![Uploading рез.png…]()
 Результаты записаны в `out/default`, где в директории `queue` хранятся мутированные корпуса 
 ![корпуса](https://github.com/user-attachments/assets/10f0b6c6-eb89-4340-b192-99543be433a6)
-3) Покрытие
+**3) Покрытие**
+Пересоберем с использованием g++ coverage `g++ -o xml_parser xml.cpp -ltinyxml2 -coverage`
+И пройдемся по корпусам для создания покрытия `for file in /home/p/out/default/queue/*; do ./xml_parser $file; done`
+Теперь с помощью lcov создадим отчет о покрытии `lcov -c -d . -o cov.info`
+И представим его в html файле `genhtml -o cov_data cov.info` 
+![cjver](https://github.com/user-attachments/assets/0bf79721-9c6b-47a3-924c-2972081900c7)
+
 
 
